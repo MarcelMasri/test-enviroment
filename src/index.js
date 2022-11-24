@@ -34,6 +34,7 @@ function init(){
     }else{ // Wenn andere Farge
       document.querySelector('#'+question).classList.add('hide');
       document.querySelector('#'+next).classList.remove('hide');
+      document.querySelector('.section_questions').scrollIntoView({behavior: "auto", block: "center", inline: "nearest"});
       question = next;
     }
   }));
