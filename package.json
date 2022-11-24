@@ -1,13 +1,13 @@
 {
-  "name": "@finsweet/developer-starter",
+  "name": "@modrnMedia/test-enviroment",
   "version": "1.0.0",
   "description": "Developer starter template for Finsweet projects.",
-  "homepage": "https://github.com/finsweet/developer-starter#readme",
+  "homepage": "https://github.com/modrnMedia/test-enviroment#readme",
   "license": "ISC",
   "keywords": [],
   "author": {
-    "name": "Finsweet",
-    "url": "https://www.finsweet.com/"
+    "name": "modrnMedia",
+    "url": "https://www.modrn.de/"
   },
   "repository": {
     "type": "git",
@@ -51,6 +51,7 @@
     "typescript": "^4.7.4"
   },
   "dependencies": {
-    "@finsweet/ts-utils": "^0.33.1"
+    "@finsweet/ts-utils": "^0.33.1",
+    "jquery": "^3.6.1"
   }
 }
