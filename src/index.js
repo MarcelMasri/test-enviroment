@@ -23,13 +23,13 @@ window.addEventListener('load', function(){
       const wrapper = document.querySelector('#details-skills-wrapper');
       const skill = document.querySelector('.person_details-info-skill');
       wrapper.querySelectorAll('.person_details-info-skill').forEach(function(elem){
-      wrapper.removeChild(elem);
-    })
-      this.querySelectorAll('.info-hidden-skill ').forEach(function(elem){
-      const clone = skill.cloneNode(true);
-      clone.querySelector('.heading-style-h6').textContent = elem.querySelector('div').textContent;
-      wrapper.appendChild(clone);
-    })
+        wrapper.removeChild(elem);
+      })
+      this.querySelectorAll('.anwalt_person-skills-item-text').forEach(function(elem){
+        const clone = skill.cloneNode(true);
+        clone.querySelector('.heading-style-h6').textContent = elem.textContent;
+        wrapper.appendChild(clone);
+      })
 
       document.querySelector('#details-email').setAttribute('href', 'mailto:' +  this.querySelector('.info-hidden-mail').textContent)
       document.querySelector('#details-fon').setAttribute('href', 'tel:' +  this.querySelector('.info-hidden-tele').textContent)
@@ -104,8 +104,8 @@ window.addEventListener('load', function(){
   }
 
   function setFilter(filter){
-    document.querySelectorAll('.info-hidden-skill').forEach(function(elem){
-      if(elem.querySelector('div').textContent == filter){
+    document.querySelectorAll('.anwalt_person-skills-item-text').forEach(function(elem){
+      if(elem.textContent == filter){
         document.querySelector('.team_team-person-match').style.display = 'block';
         const item = elem.parentElement.parentElement.parentElement.parentElement.parentElement;
         item.querySelector('.team_team-person-info-wrapper').classList.add('is-match')
