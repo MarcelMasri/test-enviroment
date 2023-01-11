@@ -13,7 +13,7 @@ window.addEventListener('load', function(){
   document.querySelectorAll('.team_team-person-item').forEach(item => item.addEventListener('click', function(){
     const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
     if(vw <= 767){ //mobile
-      const href = document.querySelector('.info-hidden-link').getAttribute('href');
+      const href = this.querySelector('.info-hidden-link').getAttribute('href');
       document.location.href = href;
     }else{ // desktop
       document.querySelector('.person_details-info-img').setAttribute('src', this.querySelector('.team_team-person-img').getAttribute('src'));
@@ -37,7 +37,7 @@ window.addEventListener('load', function(){
       document.querySelector('#details-person').querySelector('.w-richtext').innerHTML = this.querySelector('.info-hidden-person').innerHTML;
       document.querySelector('#details-pup').querySelector('.w-richtext').innerHTML = this.querySelector('.info-hidden-publish').innerHTML;
       document.querySelector('#details-teach').querySelector('.w-richtext').innerHTML = this.querySelector('.info-hidden-teach').innerHTML;
-      document.querySelector('.team_team-person-details-component').style.display = 'block';
+      document.querySelector('.team_team-person-details-component').style.display = 'flex';
     }
   }))
 
@@ -101,6 +101,7 @@ window.addEventListener('load', function(){
       allWrapper.appendChild(elem);
       elem.querySelector('.team_team-person-info-wrapper').classList.remove('is-match')
      });
+     sortList(document.querySelector('.team_team-person-list'));
   }
 
   function setFilter(filter){
@@ -113,7 +114,24 @@ window.addEventListener('load', function(){
       }
       
     })
+    sortList(document.querySelector('.team_team-person-match-wrapper'));
     document.querySelector('.section_team_header').scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+  }
+
+  function sortList(list){
+    let items = Array.from(list.querySelectorAll('.team_team-person-item'));
+    items = items.sort(function(a, b){
+      const prioA = a.querySelector('.info-hidden-priority').textContent;
+      const prioB = b.querySelector('.info-hidden-priority').textContent;
+
+      return prioA - prioB;
+    })
+    list.querySelectorAll('.team_team-person-item').forEach(function(elem){
+      list.removeChild(elem);
+    })
+    items.forEach(function(elem){
+      list.appendChild(elem);
+    })
   }
 
   function swichtFilter(filter, activate, mobile){
