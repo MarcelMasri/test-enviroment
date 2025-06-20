@@ -35,8 +35,20 @@ window.addEventListener('load', function(){
       document.querySelector('#details-fon').setAttribute('href', 'tel:' +  this.querySelector('.info-hidden-tele').textContent)
 
       document.querySelector('#details-person').querySelector('.w-richtext').innerHTML = this.querySelector('.info-hidden-person').innerHTML;
-      document.querySelector('#details-pup').querySelector('.w-richtext').innerHTML = this.querySelector('.info-hidden-publish').innerHTML;
-      document.querySelector('#details-teach').querySelector('.w-richtext').innerHTML = this.querySelector('.info-hidden-teach').innerHTML;
+
+      const publishText = this.querySelector('.info-hidden-publish').innerHTML;
+      if (publishText != "") {
+        document.querySelector('#details-pup').querySelector('.w-richtext').innerHTML = publishText;
+      } else {
+        document.querySelector('#w-tabs-0-data-w-tab-1').classList.add('hide');
+      }
+
+      const teach = this.querySelector('.info-hidden-teach').innerHTML;
+      if (teach != "") {
+        document.querySelector('#details-teach').querySelector('.w-richtext').innerHTML = teach
+      } else {
+        document.querySelector('#w-tabs-0-data-w-tab-2').classList.add('hide');
+      }
       document.querySelector('.team_team-person-details-component').style.display = 'flex';
     }
   }))
